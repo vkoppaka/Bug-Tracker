@@ -1,0 +1,8 @@
+C:\!Projects\Websites\BugTrackerMVC\trunk\src\net\BugTrackerMVC\BugTrackerMVC.Tests\bin\Debug\BugTrackerMVC.Tests.dll.config
+C:\!Projects\Websites\BugTrackerMVC\trunk\src\net\BugTrackerMVC\BugTrackerMVC.Tests\bin\Debug\BugTrackerMVC.Tests.dll
+C:\!Projects\Websites\BugTrackerMVC\trunk\src\net\BugTrackerMVC\BugTrackerMVC.Tests\bin\Debug\BugTrackerMVC.Tests.pdb
+C:\!Projects\Websites\BugTrackerMVC\trunk\src\net\BugTrackerMVC\BugTrackerMVC.Tests\bin\Debug\BugTrackerMVC.dll
+C:\!Projects\Websites\BugTrackerMVC\trunk\src\net\BugTrackerMVC\BugTrackerMVC.Tests\bin\Debug\BugTrackerMVC.pdb
+C:\!Projects\Websites\BugTrackerMVC\trunk\src\net\BugTrackerMVC\BugTrackerMVC.Tests\obj\Debug\ResolveAssemblyReference.cache
+C:\!Projects\Websites\BugTrackerMVC\trunk\src\net\BugTrackerMVC\BugTrackerMVC.Tests\obj\Debug\BugTrackerMVC.Tests.dll
+C:\!Projects\Websites\BugTrackerMVC\trunk\src\net\BugTrackerMVC\BugTrackerMVC.Tests\obj\Debug\BugTrackerMVC.Tests.pdb
