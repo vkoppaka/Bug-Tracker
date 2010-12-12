@@ -3,7 +3,7 @@ using DomainModel.Database;
 using DomainModel.Repository;
 using System.Collections.Generic;
 
-namespace BugTrackerMVC.Models
+namespace DomainModel.Repository
 {
     public class BugStatusRepository : AbstractRepository<BugStatus>
     {

@@ -36,6 +36,7 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -63,6 +64,7 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Telerik.Web.Mvc, Version=2010.3.1110.235, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
@@ -79,6 +81,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Admin\Views\BugStatus\Index.aspx" />
+    <Content Include="Content\Hay\editor.png" />
+    <Content Include="Content\Hay\loading.gif" />
+    <Content Include="Content\Hay\sprite.png" />
+    <Content Include="Content\Hay\treeview-line.png" />
+    <Content Include="Content\Hay\treeview-nodes-rtl.png" />
+    <Content Include="Content\Hay\treeview-nodes.png" />
     <Content Include="Content\images\bg_content.gif" />
     <Content Include="Content\images\bg_header.gif" />
     <Content Include="Content\images\link_document.png" />
@@ -100,7 +108,33 @@
     <Content Include="Content\images\ui-icons_eeeeee_256x240.png" />
     <Content Include="Content\images\ui-icons_ffffff_256x240.png" />
     <Content Include="Content\jquery-ui-1.8.7.custom.css" />
+    <Content Include="Content\telerik.common.min.css" />
+    <Content Include="Content\telerik.hay.min.css" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\2010.3.1110\jquery-1.4.3.min.js" />
+    <Content Include="Scripts\2010.3.1110\jquery.validate.min.js" />
+    <Content Include="Scripts\2010.3.1110\telerik.autocomplete.min.js" />
+    <Content Include="Scripts\2010.3.1110\telerik.calendar.min.js" />
+    <Content Include="Scripts\2010.3.1110\telerik.combobox.min.js" />
+    <Content Include="Scripts\2010.3.1110\telerik.common.min.js" />
+    <Content Include="Scripts\2010.3.1110\telerik.datepicker.min.js" />
+    <Content Include="Scripts\2010.3.1110\telerik.datetimepicker.min.js" />
+    <Content Include="Scripts\2010.3.1110\telerik.draganddrop.min.js" />
+    <Content Include="Scripts\2010.3.1110\telerik.editor.min.js" />
+    <Content Include="Scripts\2010.3.1110\telerik.grid.editing.min.js" />
+    <Content Include="Scripts\2010.3.1110\telerik.grid.filtering.min.js" />
+    <Content Include="Scripts\2010.3.1110\telerik.grid.grouping.min.js" />
+    <Content Include="Scripts\2010.3.1110\telerik.grid.min.js" />
+    <Content Include="Scripts\2010.3.1110\telerik.grid.reordering.min.js" />
+    <Content Include="Scripts\2010.3.1110\telerik.grid.resizing.min.js" />
+    <Content Include="Scripts\2010.3.1110\telerik.list.min.js" />
+    <Content Include="Scripts\2010.3.1110\telerik.menu.min.js" />
+    <Content Include="Scripts\2010.3.1110\telerik.panelbar.min.js" />
+    <Content Include="Scripts\2010.3.1110\telerik.tabstrip.min.js" />
+    <Content Include="Scripts\2010.3.1110\telerik.textbox.min.js" />
+    <Content Include="Scripts\2010.3.1110\telerik.timepicker.min.js" />
+    <Content Include="Scripts\2010.3.1110\telerik.treeview.min.js" />
+    <Content Include="Scripts\2010.3.1110\telerik.window.min.js" />
     <Content Include="Scripts\jquery-1.4.4.min.js" />
     <Content Include="Scripts\jquery-ui-1.8.7.custom.min.js" />
     <Content Include="Scripts\Site.js" />

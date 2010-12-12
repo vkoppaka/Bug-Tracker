@@ -5,7 +5,7 @@ using DomainModel.Database;
 using DomainModel.Repository;
 
 
-namespace BugTrackerMVC.Models
+namespace DomainModel.Repository
 {
     public class ProjectRepository : AbstractRepository<Project>
     {
