@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BugTrackerModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="BugTrackerEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AccessLevels" EntityType="BugTrackerModel.AccessLevel" />
+    <EntitySet Name="Bugs" EntityType="BugTrackerModel.Bug" />
+    <EntitySet Name="BugStatus" EntityType="BugTrackerModel.BugStatus" />
+    <EntitySet Name="Projects" EntityType="BugTrackerModel.Project" />
+    <EntitySet Name="Users" EntityType="BugTrackerModel.User" />
+    <AssociationSet Name="FK_User_AccessLevel" Association="BugTrackerModel.FK_User_AccessLevel">
+      <End Role="AccessLevel" EntitySet="AccessLevels" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Bug_BugStatus" Association="BugTrackerModel.FK_Bug_BugStatus">
+      <End Role="BugStatu" EntitySet="BugStatus" />
+      <End Role="Bug" EntitySet="Bugs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Bug_Project" Association="BugTrackerModel.FK_Bug_Project">
+      <End Role="Project" EntitySet="Projects" />
+      <End Role="Bug" EntitySet="Bugs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Bug_User" Association="BugTrackerModel.FK_Bug_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Bug" EntitySet="Bugs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Bug_User1" Association="BugTrackerModel.FK_Bug_User1">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Bug" EntitySet="Bugs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Project_User" Association="BugTrackerModel.FK_Project_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Project" EntitySet="Projects" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="AccessLevel">
+    <Key>
+      <PropertyRef Name="Access_Level_Id" />
+    </Key>
+    <Property Name="Access_Level_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Access_Level_Role" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Users" Relationship="BugTrackerModel.FK_User_AccessLevel" FromRole="AccessLevel" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Bug">
+    <Key>
+      <PropertyRef Name="Bug_Id" />
+    </Key>
+    <Property Type="Int32" Name="Bug_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Bug_Short_Description" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Bug_Description" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Bug_Spotted_On" Nullable="false" />
+    <Property Type="Int32" Name="Bug_Spotted_By" Nullable="false" />
+    <Property Type="Int32" Name="Bug_Assigned_To" Nullable="false" />
+    <Property Type="Int32" Name="Bug_Status_Id" Nullable="false" />
+    <Property Type="DateTime" Name="Bug_Status_Time" />
+    <Property Type="Binary" Name="Bug_Attachment" MaxLength="Max" FixedLength="false" />
+    <Property Type="Int32" Name="Bug_Project_Id" Nullable="false" />
+    <NavigationProperty Name="BugStatu" Relationship="BugTrackerModel.FK_Bug_BugStatus" FromRole="Bug" ToRole="BugStatu" />
+    <NavigationProperty Name="Project" Relationship="BugTrackerModel.FK_Bug_Project" FromRole="Bug" ToRole="Project" />
+    <NavigationProperty Name="User" Relationship="BugTrackerModel.FK_Bug_User" FromRole="Bug" ToRole="User" />
+    <NavigationProperty Name="User1" Relationship="BugTrackerModel.FK_Bug_User1" FromRole="Bug" ToRole="User" />
+  </EntityType>
+  <EntityType Name="BugStatus">
+    <Key>
+      <PropertyRef Name="Bug_Status_Id" />
+    </Key>
+    <Property Type="Int32" Name="Bug_Status_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Bug_Status_Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Bugs" Relationship="BugTrackerModel.FK_Bug_BugStatus" FromRole="BugStatu" ToRole="Bug" />
+  </EntityType>
+  <EntityType Name="Project">
+    <Key>
+      <PropertyRef Name="Project_Id" />
+    </Key>
+    <Property Type="Int32" Name="Project_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Project_Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="Project_Manager_Id" Nullable="false" />
+    <NavigationProperty Name="Bugs" Relationship="BugTrackerModel.FK_Bug_Project" FromRole="Project" ToRole="Bug" />
+    <NavigationProperty Name="User" Relationship="BugTrackerModel.FK_Project_User" FromRole="Project" ToRole="User" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="User_Id" />
+    </Key>
+    <Property Type="Int32" Name="User_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="User_Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Password" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="First_Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Last_Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Email" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="Access_Level_Id" Nullable="false" />
+    <Property Type="Boolean" Name="Send_Bug_Email" />
+    <NavigationProperty Name="AccessLevel" Relationship="BugTrackerModel.FK_User_AccessLevel" FromRole="User" ToRole="AccessLevel" />
+    <NavigationProperty Name="Bugs" Relationship="BugTrackerModel.FK_Bug_User" FromRole="User" ToRole="Bug" />
+    <NavigationProperty Name="Bugs1" Relationship="BugTrackerModel.FK_Bug_User1" FromRole="User" ToRole="Bug" />
+    <NavigationProperty Name="Projects" Relationship="BugTrackerModel.FK_Project_User" FromRole="User" ToRole="Project" />
+  </EntityType>
+  <Association Name="FK_User_AccessLevel">
+    <End Type="BugTrackerModel.AccessLevel" Role="AccessLevel" Multiplicity="1" />
+    <End Type="BugTrackerModel.User" Role="User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AccessLevel">
+        <PropertyRef Name="Access_Level_Id" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="Access_Level_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Bug_BugStatus">
+    <End Type="BugTrackerModel.BugStatus" Role="BugStatu" Multiplicity="1" />
+    <End Type="BugTrackerModel.Bug" Role="Bug" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BugStatu">
+        <PropertyRef Name="Bug_Status_Id" />
+      </Principal>
+      <Dependent Role="Bug">
+        <PropertyRef Name="Bug_Status_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Bug_Project">
+    <End Type="BugTrackerModel.Project" Role="Project" Multiplicity="1" />
+    <End Type="BugTrackerModel.Bug" Role="Bug" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Project">
+        <PropertyRef Name="Project_Id" />
+      </Principal>
+      <Dependent Role="Bug">
+        <PropertyRef Name="Bug_Project_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Bug_User">
+    <End Type="BugTrackerModel.User" Role="User" Multiplicity="1" />
+    <End Type="BugTrackerModel.Bug" Role="Bug" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="User_Id" />
+      </Principal>
+      <Dependent Role="Bug">
+        <PropertyRef Name="Bug_Spotted_By" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Bug_User1">
+    <End Type="BugTrackerModel.User" Role="User" Multiplicity="1" />
+    <End Type="BugTrackerModel.Bug" Role="Bug" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="User_Id" />
+      </Principal>
+      <Dependent Role="Bug">
+        <PropertyRef Name="Bug_Assigned_To" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Project_User">
+    <End Type="BugTrackerModel.User" Role="User" Multiplicity="1" />
+    <End Type="BugTrackerModel.Project" Role="Project" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="User_Id" />
+      </Principal>
+      <Dependent Role="Project">
+        <PropertyRef Name="Project_Manager_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

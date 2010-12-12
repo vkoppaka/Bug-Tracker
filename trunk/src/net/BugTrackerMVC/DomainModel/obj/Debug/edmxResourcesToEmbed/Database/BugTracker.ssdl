@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BugTrackerModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="BugTrackerModelStoreContainer">
+    <EntitySet Name="AccessLevel" EntityType="BugTrackerModel.Store.AccessLevel" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Bug" EntityType="BugTrackerModel.Store.Bug" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="BugStatus" EntityType="BugTrackerModel.Store.BugStatus" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Project" EntityType="BugTrackerModel.Store.Project" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="User" EntityType="BugTrackerModel.Store.User" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_Bug_BugStatus" Association="BugTrackerModel.Store.FK_Bug_BugStatus">
+      <End Role="BugStatus" EntitySet="BugStatus" />
+      <End Role="Bug" EntitySet="Bug" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Bug_Project" Association="BugTrackerModel.Store.FK_Bug_Project">
+      <End Role="Project" EntitySet="Project" />
+      <End Role="Bug" EntitySet="Bug" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Bug_User" Association="BugTrackerModel.Store.FK_Bug_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Bug" EntitySet="Bug" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Bug_User1" Association="BugTrackerModel.Store.FK_Bug_User1">
+      <End Role="User" EntitySet="User" />
+      <End Role="Bug" EntitySet="Bug" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Project_User" Association="BugTrackerModel.Store.FK_Project_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Project" EntitySet="Project" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_AccessLevel" Association="BugTrackerModel.Store.FK_User_AccessLevel">
+      <End Role="AccessLevel" EntitySet="AccessLevel" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="AccessLevel">
+    <Key>
+      <PropertyRef Name="Access_Level_Id" />
+    </Key>
+    <Property Name="Access_Level_Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Access_Level_Role" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Bug">
+    <Key>
+      <PropertyRef Name="Bug_Id" />
+    </Key>
+    <Property Name="Bug_Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Bug_Short_Description" Type="varchar" MaxLength="50" />
+    <Property Name="Bug_Description" Type="text" Nullable="false" />
+    <Property Name="Bug_Spotted_On" Type="datetime" Nullable="false" />
+    <Property Name="Bug_Spotted_By" Type="int" Nullable="false" />
+    <Property Name="Bug_Assigned_To" Type="int" Nullable="false" />
+    <Property Name="Bug_Status_Id" Type="int" Nullable="false" />
+    <Property Name="Bug_Status_Time" Type="datetime" />
+    <Property Name="Bug_Attachment" Type="image" />
+    <Property Name="Bug_Project_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BugStatus">
+    <Key>
+      <PropertyRef Name="Bug_Status_Id" />
+    </Key>
+    <Property Name="Bug_Status_Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Bug_Status_Name" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Project">
+    <Key>
+      <PropertyRef Name="Project_Id" />
+    </Key>
+    <Property Name="Project_Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Project_Name" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Project_Manager_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="User_Id" />
+    </Key>
+    <Property Name="User_Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="User_Name" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Password" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="First_Name" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Last_Name" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Email" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Access_Level_Id" Type="int" Nullable="false" />
+    <Property Name="Send_Bug_Email" Type="bit" />
+  </EntityType>
+  <Association Name="FK_Bug_BugStatus">
+    <End Role="BugStatus" Type="BugTrackerModel.Store.BugStatus" Multiplicity="1" />
+    <End Role="Bug" Type="BugTrackerModel.Store.Bug" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BugStatus">
+        <PropertyRef Name="Bug_Status_Id" />
+      </Principal>
+      <Dependent Role="Bug">
+        <PropertyRef Name="Bug_Status_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Bug_Project">
+    <End Role="Project" Type="BugTrackerModel.Store.Project" Multiplicity="1" />
+    <End Role="Bug" Type="BugTrackerModel.Store.Bug" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Project">
+        <PropertyRef Name="Project_Id" />
+      </Principal>
+      <Dependent Role="Bug">
+        <PropertyRef Name="Bug_Project_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Bug_User">
+    <End Role="User" Type="BugTrackerModel.Store.User" Multiplicity="1" />
+    <End Role="Bug" Type="BugTrackerModel.Store.Bug" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="User_Id" />
+      </Principal>
+      <Dependent Role="Bug">
+        <PropertyRef Name="Bug_Spotted_By" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Bug_User1">
+    <End Role="User" Type="BugTrackerModel.Store.User" Multiplicity="1" />
+    <End Role="Bug" Type="BugTrackerModel.Store.Bug" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="User_Id" />
+      </Principal>
+      <Dependent Role="Bug">
+        <PropertyRef Name="Bug_Assigned_To" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Project_User">
+    <End Role="User" Type="BugTrackerModel.Store.User" Multiplicity="1" />
+    <End Role="Project" Type="BugTrackerModel.Store.Project" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="User_Id" />
+      </Principal>
+      <Dependent Role="Project">
+        <PropertyRef Name="Project_Manager_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_AccessLevel">
+    <End Role="AccessLevel" Type="BugTrackerModel.Store.AccessLevel" Multiplicity="1" />
+    <End Role="User" Type="BugTrackerModel.Store.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AccessLevel">
+        <PropertyRef Name="Access_Level_Id" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="Access_Level_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
