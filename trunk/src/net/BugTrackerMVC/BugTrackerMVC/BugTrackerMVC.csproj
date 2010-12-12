@@ -65,6 +65,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\BugStatusController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -72,18 +74,38 @@
     </Compile>
     <Compile Include="Helpers\LoginLinkHelper.cs" />
     <Compile Include="Helpers\MenuItemHelper.cs" />
-    <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\LogOnModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Admin\Views\BugStatus\Index.aspx" />
     <Content Include="Content\images\bg_content.gif" />
     <Content Include="Content\images\bg_header.gif" />
     <Content Include="Content\images\link_document.png" />
     <Content Include="Content\images\link_external.png" />
     <Content Include="Content\images\link_image.png" />
+    <Content Include="Content\images\ui-bg_glass_55_fcf0ba_1x400.png" />
+    <Content Include="Content\images\ui-bg_gloss-wave_100_ece8da_500x100.png" />
+    <Content Include="Content\images\ui-bg_highlight-hard_100_f5f3e5_1x100.png" />
+    <Content Include="Content\images\ui-bg_highlight-hard_100_fafaf4_1x100.png" />
+    <Content Include="Content\images\ui-bg_highlight-hard_15_459e00_1x100.png" />
+    <Content Include="Content\images\ui-bg_highlight-hard_95_cccccc_1x100.png" />
+    <Content Include="Content\images\ui-bg_highlight-soft_25_67b021_1x100.png" />
+    <Content Include="Content\images\ui-bg_highlight-soft_95_ffedad_1x100.png" />
+    <Content Include="Content\images\ui-bg_inset-soft_15_2b2922_1x100.png" />
+    <Content Include="Content\images\ui-icons_808080_256x240.png" />
+    <Content Include="Content\images\ui-icons_847e71_256x240.png" />
+    <Content Include="Content\images\ui-icons_8dc262_256x240.png" />
+    <Content Include="Content\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\images\ui-icons_eeeeee_256x240.png" />
+    <Content Include="Content\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\jquery-ui-1.8.7.custom.css" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\jquery-1.4.4.min.js" />
+    <Content Include="Scripts\jquery-ui-1.8.7.custom.min.js" />
     <Content Include="Scripts\Site.js" />
     <Content Include="Views\Shared\Footer.ascx" />
+    <Content Include="Views\Shared\SideMenu.ascx" />
     <Content Include="Views\Shared\TopMenu.ascx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -93,9 +115,6 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Content\Site.css" />
-    <Content Include="Scripts\jquery-1.4.1.js" />
-    <Content Include="Scripts\jquery-1.4.1.min.js" />
-    <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate-vsdoc.js" />
@@ -105,10 +124,7 @@
     <Content Include="Scripts\MicrosoftMvcAjax.debug.js" />
     <Content Include="Scripts\MicrosoftMvcValidation.js" />
     <Content Include="Scripts\MicrosoftMvcValidation.debug.js" />
-    <Content Include="Views\Account\ChangePassword.aspx" />
-    <Content Include="Views\Account\ChangePasswordSuccess.aspx" />
     <Content Include="Views\Account\LogOn.aspx" />
-    <Content Include="Views\Account\Register.aspx" />
     <Content Include="Views\Home\About.aspx" />
     <Content Include="Views\Home\Index.aspx" />
     <Content Include="Views\Shared\Error.aspx" />
@@ -118,6 +134,17 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Admin\Views\Shared\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DomainModel\DomainModel.csproj">
+      <Project>{52DA0FC3-8589-41A8-B091-1C90F94E8A09}</Project>
+      <Name>DomainModel</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Web.config" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

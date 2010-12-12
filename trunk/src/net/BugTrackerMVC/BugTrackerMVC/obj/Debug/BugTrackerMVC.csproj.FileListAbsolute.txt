@@ -1,5 +1,7 @@
 C:\!Projects\Websites\BugTrackerMVC\trunk\src\net\BugTrackerMVC\BugTrackerMVC\bin\BugTrackerMVC.dll
 C:\!Projects\Websites\BugTrackerMVC\trunk\src\net\BugTrackerMVC\BugTrackerMVC\bin\BugTrackerMVC.pdb
+C:\!Projects\Websites\BugTrackerMVC\trunk\src\net\BugTrackerMVC\BugTrackerMVC\bin\DomainModel.dll
+C:\!Projects\Websites\BugTrackerMVC\trunk\src\net\BugTrackerMVC\BugTrackerMVC\bin\DomainModel.pdb
 C:\!Projects\Websites\BugTrackerMVC\trunk\src\net\BugTrackerMVC\BugTrackerMVC\obj\Debug\ResolveAssemblyReference.cache
 C:\!Projects\Websites\BugTrackerMVC\trunk\src\net\BugTrackerMVC\BugTrackerMVC\obj\Debug\BugTrackerMVC.dll
 C:\!Projects\Websites\BugTrackerMVC\trunk\src\net\BugTrackerMVC\BugTrackerMVC\obj\Debug\BugTrackerMVC.pdb

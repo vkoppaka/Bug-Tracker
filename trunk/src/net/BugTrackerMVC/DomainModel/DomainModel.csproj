@@ -56,7 +56,9 @@
     <Compile Include="Repository\ProjectRepository.cs" />
     <Compile Include="Repository\UserRepository.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Services\" />
+  </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="Database\BugTracker.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
